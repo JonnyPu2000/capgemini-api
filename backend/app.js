@@ -131,7 +131,7 @@ mongoose.connect(
       console.error(err);
     } else {
       console.log('CONNECTED TO MONGODB!!');
-      app.listen(proccess.env.PORT);
+      app.listen(process.env.PORT);
     }
   }
 );
