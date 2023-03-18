@@ -109,7 +109,7 @@ app.get('/stats', async (req, res) => {
 
 })
 
-//Get para mostrar todos as sequências
+//Get para mostrar todas as sequências
 app.get('/', async function (req, res) {
   try {
     var strings = await Strings.find({})
