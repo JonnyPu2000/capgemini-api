@@ -11,7 +11,6 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/sequence', async (req, res) => {
-  console.log(req.body)
 
   const listaStrings = req.body.letters
 
