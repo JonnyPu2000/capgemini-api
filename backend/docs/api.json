@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "REST API Documentation",
     "description": "Documentation from the endpoints declared in this backend.",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "title": "REST API Documentation"
   },
-  "host": "localhost:80",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
     "http"
@@ -13,18 +13,14 @@
   "paths": {
     "/sequence": {
       "post": {
-        "description": "",
+        "description": "Este endpoint POST recebe uma lista de strings de caracteres e verifica se elas têm o mesmo comprimento e apenas caracteres válidos. Em seguida, verifica se a sequência de caracteres já existe na base de dados. Se não existir, o endpoint verifica se existem duas sequências iguais de quatro caracteres nas três dimensões (horizontal, vertical e diagonal) da matriz de caracteres. Se pelo menos duas dessas sequências existirem, a sequência é considerada válida e será salva na base de dados. Retorna um booleano indicando se a sequência é válida ou não",
         "parameters": [
           {
-            "name": "body",
             "in": "body",
+            "name": "body",
+            "required": false,
             "schema": {
-              "type": "object",
-              "properties": {
-                "letters": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/body"
             }
           }
         ],
@@ -43,7 +39,7 @@
     },
     "/stats": {
       "get": {
-        "description": "",
+        "description": "Este endpoint GET busca informações estatísticas sobre as sequências salvas na base de dados. Ele conta o número de sequências válidas e inválidas na base de dados, calcula a proporção de sequências válidas em relação ao total e retorna esses dados em um objeto JSON.O endpoint usa os modelos de banco de dados Strings e Stats para obter e salvar as informações. Ele retorna um objeto Stats contendo o número de sequências válidas e inválidas, bem como a proporção de sequências válidas em relação ao total.",
         "parameters": [],
         "responses": {
           "200": {
@@ -54,12 +50,22 @@
     },
     "/": {
       "get": {
-        "description": "",
+        "description": "Este endpoint GET busca todas as sequências salvas na base de dados e as retorna como uma resposta JSON. Ele usa o modelo de banco de dados Strings para recuperar todas as sequências e, em seguida, as retorna como um objeto JSON na resposta HTTP. Se ocorrer algum erro, ele retorna uma resposta com o erro.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "letters": {
+          "example": ""
         }
       }
     }
