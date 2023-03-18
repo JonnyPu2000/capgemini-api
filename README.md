@@ -14,13 +14,10 @@ git clone https://github.com/JonnyPu2000/capgemini-api
 docker-compose.yaml
 Dockerfile
 ```
-3. Configure o arquivo "docker-compose.yaml":
-O arquivo "docker-compose.yaml" define a configuração para os contêineres do Docker. 
-Ele especifica dois serviços: "mongodb" e "backend". O serviço "mongodb" define uma instância do banco de dados MongoDB, enquanto o serviço "backend" define o contêiner para a API NodeJS.
-Observe que o arquivo "mongodb.env" contém as variáveis de ambiente para o serviço MongoDB, como o nome de usuário e a senha. Certifique-se de que essas variáveis de ambiente estejam definidas corretamente de acordo com suas necessidades.
+3. (Opcional) Configure o arquivo "mongodb.env" e "backend.env":
 
-4. Configure o arquivo "Dockerfile":
-O arquivo "Dockerfile" define a imagem do contêiner da API NodeJS. Ele usa a imagem base do NodeJS e copia os arquivos do projeto para o contêiner. Observe que o arquivo "backend.env" contém as variáveis de ambiente para a API NodeJS, como as configurações do banco de dados MongoDB. Certifique-se de que essas variáveis de ambiente estejam definidas corretamente de acordo com suas necessidades.
+O arquivo "mongodb.env" inclui informações como o nome de usuário e a senha necessários para acessar o serviço MongoDB. Se você precisar alterar essas informações, basta modificar as variáveis de ambiente no arquivo. Além disso, lembre-se de atualizar as credenciais no arquivo "backend.env" para garantir que as informações de autenticação estejam sincronizadas com as alterações feitas no arquivo "mongodb.env".
+
 
 ## Execução
 Construa as imagens e inicie os containers do Docker:
