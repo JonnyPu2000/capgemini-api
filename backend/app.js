@@ -19,8 +19,16 @@ app.post('/sequence', async (req, res) => {
 
   // Verifica se todas as strings possuem o mesmo tamanho e apenas caracteres válidos
 
+
+  
   if (!listaStrings.every(str => /^[UBDH]+$/i.test(str))) {
     return res.status(400).send('A lista contém caracteres inválidos!');
+  }
+  if (tamanhoString < 4 || listaStrings.length < 4) {
+    return res.status(400).send('A matriz é muito pequena! (Mínimo 4x4)');
+  }
+  if (!listaStrings.every(str => str.length === tamanhoString)) {
+    return res.status(400).send('A lista não é uma matriz NxN!');
   }
   if (listaStrings.some(str => str.length !== tamanhoString)) {
     return res.status(400).send('As strings não possuem o mesmo tamanho!');
